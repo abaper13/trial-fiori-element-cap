@@ -49,7 +49,7 @@ annotate service.Incidents with @(UI : {
         incidentStatus_code,
         priority_code,
         //insert your selection fields enhancement here
-
+        category_code,
     ],
 
     //	Information for the header area of an entity representation
