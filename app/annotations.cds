@@ -167,7 +167,11 @@ annotate service.Incidents with @(UI : {
 annotate service.IncidentFlow with @(UI : {
     LineItem : [
         //insert your column enhancement here
-        
+        {
+            $Type : 'UI.DataField',
+            Value : stepStatus,
+            Criticality : criticality,
+        },        
         {
             $Type : 'UI.DataField',
             Value : processStep

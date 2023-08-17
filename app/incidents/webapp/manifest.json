@@ -51,7 +51,8 @@
                 "sap.m": {},
                 "sap.ui.core": {},
                 "sap.ushell": {},
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.f": {}
             }
         },
         "contentDensities": {
@@ -88,12 +89,17 @@
                 {
                     "pattern": ":?query:",
                     "name": "IncidentsList",
-                    "target": "IncidentsList"
+                    "target": [
+                        "IncidentsList"
+                    ]
                 },
                 {
                     "pattern": "Incidents({key}):?query:",
                     "name": "IncidentsObjectPage",
-                    "target": "IncidentsObjectPage"
+                    "target": [
+                        "IncidentsList",
+                        "IncidentsObjectPage"
+                    ]
                 }
             ],
             "targets": {
@@ -114,7 +120,9 @@
                             },
                             "initialLoad": "Enabled"
                         }
-                    }
+                    },
+                    "controlAggregation": "beginColumnPages",
+                    "contextPattern": ""
                 },
                 "IncidentsObjectPage": {
                     "type": "Component",
@@ -133,20 +141,36 @@
                                                 "placement": "After",
                                                 "anchor": "IncidentOverviewFacet"
                                             },
-                                            "title": "Maximum Processing Time"
+                                            "title": "Maximum Processing Time",
+                                            "type": "XMLFragment"
                                         }
                                     }
                                 }
                             }
                         }
-                    }
+                    },
+                    "controlAggregation": "midColumnPages",
+                    "contextPattern": "/Incidents({key})"
                 }
+            },
+            "config": {
+                "flexibleColumnLayout": {
+                    "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+                    "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+                },
+                "routerClass": "sap.f.routing.Router"
             }
         },
         "extends": {
             "extensions": {
                 "sap.ui.controllerExtensions": {}
             }
+        },
+        "rootView": {
+            "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+            "type": "XML",
+            "async": true,
+            "id": "appRootView"
         }
     },
     "sap.fiori": {
