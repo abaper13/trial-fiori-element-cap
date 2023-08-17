@@ -44,7 +44,7 @@ annotate service.Incidents with {
                 ValueListProperty : 'descr'
             }
             ]
-        }        
+        }         
     };  
   priority @Common : {
         Text            : priority.name,
