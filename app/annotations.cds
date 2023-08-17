@@ -36,7 +36,10 @@ annotate service.Incidents with @(UI : {
             Value : category_code
         },
         //insert your line item enhancement here
-
+        {
+            $Type : 'UI.DataField',
+            Value : title
+        }
     ],
 
     //the managed associations incidentStatus, category and priority provide a denormalized _code property to the root entity SafetIncidents
@@ -101,12 +104,31 @@ annotate service.Incidents with @(UI : {
                 Value : title
             },
             //insert your field group enhancement here 
-            
+            {
+                $Type : 'UI.DataField',
+                Value : description
+            },            
        ]
     },
 
     //insert your new field group here
-
+    FieldGroup #GeneralInformation: {
+    $Type : 'UI.FieldGroupType',
+    Data : [
+        {
+            $Type : 'UI.DataField',
+            Value : priority_code,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : category_code,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : incidentStatus_code,
+        },
+    ],
+},
 
     //object page content area is organized by facets referring to e.g. fieldgroup and lineItem annotations
     //https://github.com/SAP/odata-vocabularies/blob/master/vocabularies/UI.md#Facet    
@@ -123,7 +145,12 @@ annotate service.Incidents with @(UI : {
                     Target : '@UI.FieldGroup#IncidentDetails'
                 },
                 //insert your reference facet enhancement here
-
+                {
+                    $Type : 'UI.ReferenceFacet',
+                    Target : '@UI.FieldGroup#GeneralInformation',
+                    Label : '{i18n>GeneralInformation}',
+                    ID : 'GeneralInformationFacet',
+                },  
             ]
         },
         //this facet shows a table on the object page by referring to a lineItem annotation via association incidentFlow

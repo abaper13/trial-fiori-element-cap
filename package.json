@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "name": "fiori_elements_tutorial",
     "version": "1.0.0",
     "description": "A simple CAP project.",
@@ -9,33 +8,9 @@
     "dependencies": {
         "@sap/cds": "^6.8.4",
         "express": "^4"
-=======
-  "name": "fiori_elements_tutorial",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^7",
-    "express": "^4"
-  },
-  "devDependencies": {
-    "sqlite3": "5.1.5"
-  },
-  "scripts": {
-    "start": "npx cds run",
-    "watch": "npx cds watch"
-  },
-  "cds": {
-    "requires": {
-      "db": {
-        "kind": "sql"
-      }
->>>>>>> b04c3e6dfcdbe7ff8859e8ac67474672982cc546
     },
     "devDependencies": {
-        "@sap/ux-specification": "UI5-1.102",
+        "@sap/ux-specification": "UI5-1.117",
         "sqlite3": "5.1.5"
     },
     "scripts": {
